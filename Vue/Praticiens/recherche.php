@@ -1,4 +1,4 @@
-<?php $this->titre = "Médicaments"; ?>
+<?php $this->titre = "Praticiens"; ?>
 
 <?php
 $menuPraticiens = true;
