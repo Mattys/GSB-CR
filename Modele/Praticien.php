@@ -7,7 +7,7 @@ class Praticien extends Modele {
 
     // Morceau de requête SQL incluant les champs de la table praticien
     private $sqlPraticien = 'select id_praticien as idPraticien, nom_praticien As nom, prenom_praticien as prenom, ville_praticien as ville,adresse_praticien as adresse, cp_praticien as cp, coef_notoriete, lib_type_praticien as type from PRATICIEN P join TYPE_PRATICIEN T on P.id_type_praticien=T.id_type_praticien';
-
+    
     // Renvoie la liste des praticiens
     public function getPraticiens() {
         $sql = $this->sqlPraticien . ' order by nom_praticien';
@@ -15,7 +15,13 @@ class Praticien extends Modele {
         return $praticiens;
     }
 
-    // Renvoie un praticien à partir de son identifiant
+    
+    public function getPraticiensByType($typePraticien)
+    {$sql = $this->sqlPraticien . ' where P.id_type_praticien=?';
+        $praticiens = $this->executerRequete($sql, array($typePraticien));
+        return $praticiens;}
+            
+       // Renvoie un praticien à partir de son identifiant     
     public function getPraticien($idPraticien) {
         $sql = $this->sqlPraticien . ' where id_praticien=?';
         $praticien = $this->executerRequete($sql, array($idPraticien));
