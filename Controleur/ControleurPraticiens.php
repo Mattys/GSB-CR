@@ -1,12 +1,12 @@
 <?php
-
+require_once 'Controleur/ControleurSecurise.php';
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Praticien.php';
 require_once 'Modele/TypePraticien.php';
 
 
 // Contrôleur des actions liées aux praticiens
-class ControleurPraticiens extends Controleur {
+class ControleurPraticiens extends ControleurSecurise {
 
     // Objet modèle Médicament
     private $praticien;
@@ -19,7 +19,13 @@ class ControleurPraticiens extends Controleur {
 
     // Affiche la liste des praticiens
     public function index() {
-        $praticiens = $this->praticien->getPraticiens();
+        if ($this->requete->existeParametre("idType"))
+        $idType=$this->requete->getParametre("idType");
+        if ($this->requete->existeParametre("nom"))
+        $nom=$this->requete->getParametre("nom");
+        if ($this->requete->existeParametre("ville"))
+        $ville=$this->requete->getParametre("ville");
+        $praticiens = $this->praticien->getPraticiens($idType,$nom,$ville);
         $this->genererVue(array('praticiens' => $praticiens));
     }
 
