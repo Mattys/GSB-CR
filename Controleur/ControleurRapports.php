@@ -6,7 +6,7 @@ require_once 'Modele/Rapport.php';
 
 
 // Contrôleur des actions liées aux rapports de visite
-class ControleurRapport extends ControleurSecurise {
+class ControleurRapports extends ControleurSecurise {
 
     
     private $praticien;
@@ -35,5 +35,22 @@ public function ajout() {
         // Exécution de l'action par défaut pour réafficher la liste des billets
         $this->genererVue();
 }
-  
+  public function consulter() {
+      $idVisiteur = $this->requete->getSession()->getAttribut('idVisiteur');
+        $rapports = $this->rapport->getRapports($idVisiteur);
+       
+        $this->genererVue(array('rapports' => $rapports),"consulter");
+      
+
+     
+    }
+    public function supprimer() {
+      $idRapport = $this->requete->getParametre('id');
+        try{
+        $this->rapport->deleteRapport($idRapport);
+        $this->consulter();
+        }
+        catch (Exception $e) {
+       throw $e;}
+    }
 }

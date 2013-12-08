@@ -13,7 +13,7 @@ require 'Vue/_Commun/navigation.php';
 
     </h2>
     <div class="well">
-        <form class="form-horizontal" method="post" action="rapport/ajout" role="form">
+        <form class="form-horizontal" method="post" action="rapports/ajout" role="form">
             <div class="form-group">
                 <label class="col-sm-3 col-sm-offset-2 control-label">
 
