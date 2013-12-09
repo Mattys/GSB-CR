@@ -10,14 +10,12 @@ class Praticien extends Modele {
     
     // Renvoie la liste des praticiens
     public function getPraticiens($idType=null,$nom=null,$ville=null) {
-        $sql = $this->sqlPraticien . ' order by nom_praticien';
-        if(isset($idType))
-            $sql = $this->sqlPraticien . ' where P.id_type_praticien=?';
-        if(isset($nom))
-           $sql = $this->sqlPraticien . ' AND nom_praticien LIKE ?';
-        if(isset($ville))
-           $sql = $this->sqlPraticien . ' AND ville_praticien LIKE ?';
-        $praticiens = $this->executerRequete($sql,array((isset($idType) ? "%$idType%": ""),(isset($nom) ? "%$nom%": ""),(isset($ville) ? "%$ville%": "")));
+        
+       // if(isset($idType))
+            $sql = $this->sqlPraticien . ' where P.id_type_praticien=?  AND nom_praticien LIKE ? AND ville_praticien LIKE ?';
+        
+  $sql = $this->sqlPraticien . ' order by nom_praticien';
+        $praticiens = $this->executerRequete($sql,array( "%$idType%", "%$nom%", "%$ville%"));
         return $praticiens;
     }
 
