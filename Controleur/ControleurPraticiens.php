@@ -52,9 +52,9 @@ class ControleurPraticiens extends ControleurSecurise {
             throw new Exception("Action impossible : aucun praticien défini");
     }
        public function resultats() {
-           if ($this->requete->existeParametre("idType"))
-        $idType=$this->requete->getParametre("idType");
-        else $idType=null;
+          // if ($this->requete->existeParametre("idType"))
+        $idType=$this->requete->getParametre("id");
+        //else $idType=null;
         if ($this->requete->existeParametre("nom"))
         $nom=$this->requete->getParametre("nom");
         else $nom=null;

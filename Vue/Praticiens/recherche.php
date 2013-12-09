@@ -28,7 +28,7 @@ require 'Vue/_Commun/navigation.php';
                
                         
                     
-                <div id="avancee" class="tab-pane"><form class="form-horizontal" method="post" action="praticiens/index" role="form"><div class="form-group"><label class="col-sm-3 col-sm-offset-2 control-label">
+                <div id="avancee" class="tab-pane"><form class="form-horizontal" method="post" action="praticiens/resultats" role="form"><div class="form-group"><label class="col-sm-3 col-sm-offset-2 control-label">
                                     Nom
                                 </label><div class="col-sm-5 col-md-4"><input class="form-control" type="text" autofocus="" name="nom"></input></div></div><div class="form-group"><label class="col-sm-3 col-sm-offset-2 control-label">
                                     Ville
