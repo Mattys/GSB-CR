@@ -18,7 +18,7 @@
             <li class="dropdown <?= isset($menuMedicaments) ? 'active' : '' ?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Médicaments <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="medicaments/">Consulter</a></li>
+                    <li><a href="medicaments/index">Consulter</a></li>
                     <li><a href="medicaments/recherche">Rechercher</a></li>
                 </ul>
             </li>
@@ -26,15 +26,15 @@
             <li class="dropdown <?= isset($menuPraticiens) ? 'active' : '' ?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Praticiens <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="praticiens/">Consulter</a></li>
+                    <li><a href="praticiens/index">Consulter</a></li>
                     <li><a href="praticiens/recherche">Rechercher</a></li>
                 </ul>
             </li>
             <li class="dropdown <?= isset($menuRapport) ? 'active' : '' ?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Comptes-rendus<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                    <li><a href="rapports/">Ajouter</a></li>
-            <li><a href="rapports/consulter">Consulter</a></li></ul>
+                    <li><a href="rapports/indexajout">Ajouter</a></li>
+            <li><a href="rapports/index">Consulter</a></li></ul>
             </li>
             
         </ul>

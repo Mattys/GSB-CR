@@ -15,7 +15,7 @@ class Praticien extends Modele {
             $sql = $this->sqlPraticien . ' where P.id_type_praticien=?  AND nom_praticien LIKE ? AND ville_praticien LIKE ?';
             $praticiens = $this->executerRequete($sql, array($idType, "%$nom%", "%$ville%"));
         } else {
-
+$sql = $this->sqlPraticien;
             $praticiens = $this->executerRequete($sql);
         }
         return $praticiens;
