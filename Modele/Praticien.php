@@ -12,10 +12,10 @@ class Praticien extends Modele {
     public function getPraticiens($idType = null, $nom = null, $ville = null) {
         $sql = $this->sqlPraticien;
         if (isset($idType)) {
-            $sql = $this->sqlPraticien . ' where P.id_type_praticien=?  AND nom_praticien LIKE ? AND ville_praticien LIKE ?';
+            $sql = $this->sqlPraticien . ' where P.id_type_praticien=?  AND nom_praticien LIKE ? AND ville_praticien LIKE ? order by nom_praticien';
             $praticiens = $this->executerRequete($sql, array($idType, "%$nom%", "%$ville%"));
         } else {
-$sql = $this->sqlPraticien;
+            $sql = $this->sqlPraticien . ' order by nom_praticien';
             $praticiens = $this->executerRequete($sql);
         }
         return $praticiens;
