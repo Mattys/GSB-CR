@@ -52,7 +52,18 @@ public function ajout() {
        throw $e;}
   }
   public function modifier(){
-      
+      $idRapport = $this->requete->getParametre('id');
+       $motif = $this->requete->getParametre('motif');
+        $bilan = $this->requete->getParametre('bilan');
+        
+        try{
+        $this->rapport->updateRapport($idRapport,$motif,$bilan);
+        }catch (Exception $e) {
+       throw $e;}
+        $message=$motif.' '.$bilan;
+        // Exécution de l'action par défaut pour réafficher la liste des billets
+        $this->genererVue(array("message"=>$message),'modification');
+
   }
     public function supprimer() {
       $idRapport = $this->requete->getParametre('id');

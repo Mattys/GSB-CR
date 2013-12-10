@@ -10,8 +10,12 @@ require 'Vue/_Commun/navigation.php';
 
     <div class="alert alert-success">
 
+<?php 
 
-                Le compte-rendu a été modifié avec succès.
+    echo $message;
+
+?>
+           Le compte-rendu a été modifié avec succès.
 
     </div>
 
@@ -25,7 +29,7 @@ require 'Vue/_Commun/navigation.php';
 
     </h2>
     <div class="well">
-        <form class="form-horizontal" method="post" action="rapports/modifier" role="form">
+        <form class="form-horizontal" method="post" action="rapports/modifier/<?= $this->nettoyer($modification['id'])?>" role="form">
             <div class="form-group">
                 <label class="col-sm-3 col-sm-offset-2 control-label">
 
