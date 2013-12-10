@@ -24,7 +24,7 @@ require 'Vue/_Commun/navigation.php';
                     <td><?= $this->nettoyer($rapport['date_rapport']) ?></a></td>
                     <td><?= $this->nettoyer($rapport['nom_praticien']). ' '.$this->nettoyer($rapport['prenom_praticien']) ?></td><td><?= $this->nettoyer($rapport['ville_praticien']) ?></td><td><?= $this->nettoyer($rapport['motif']) ?></td><td>
 
-    <a class="btn btn-info" title="Modifier" href="rapports/modification/119">
+    <a class="btn btn-info" title="Modifier" href="rapports/modification/<?= $this->nettoyer($rapport['id_rapport']) ?>">
         <span class="glyphicon glyphicon-edit"></span>
     </a>
     <button class="btn btn-danger" data-target="#dlgConfirmation<?= $this->nettoyer($rapport['id_rapport']) ?>" data-toggle="modal" title="Supprimer" type="button">

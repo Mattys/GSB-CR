@@ -8,6 +8,7 @@ class Rapport extends Modele {
    //requête sql ajoutant un nouveau compte rendu
     private $sqlCompteRendu = "INSERT INTO rapport_visite VALUES('',?,?,?,?,?)";
     private  $sqlGetRapports = "SELECT * FROM rapport_visite R JOIN praticien P ON R.id_praticien = P.id_praticien WHERE id_visiteur=?";
+    private  $sqlGetRapport = "SELECT nom_praticien as nom, prenom_praticien as prenom,date_rapport as date, bilan, motif FROM rapport_visite R JOIN praticien P ON R.id_praticien = P.id_praticien WHERE id_rapport=?";
     private $sqlDelRapport = "DELETE FROM rapport_visite where id_rapport=?";
 // ajoute le compte rendu avec les valeurs données dans le formulaire
     public function addRapport($idPraticien,$idVisiteur,$dateRapport,$bilan,$motif) {
@@ -26,12 +27,20 @@ class Rapport extends Modele {
      
         
     }
+    public function getRapport($idRapport)
+            {
+        $sql = $this->sqlGetRapport;
+        $rapport = $this->executerRequete($sql, array($idRapport));
+        
+            return $rapport->fetch(); 
+    }
+    
 public function deleteRapport($idRapport) {
         $sql = $this->sqlDelRapport;
          try{
         $this->executerRequete($sql,array($idRapport));}
        catch (Exception $e) {
-       throw new Exception("Le rappot n'a pas pu être supprimé");}
+       throw new Exception("Le rapport n'a pas pu être supprimé");}
         
     }
 

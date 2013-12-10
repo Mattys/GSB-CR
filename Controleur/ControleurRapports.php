@@ -23,7 +23,7 @@ class ControleurRapports extends ControleurSecurise {
         $idVisiteur = $this->requete->getSession()->getAttribut('idVisiteur');
         $rapports = $this->rapport->getRapports($idVisiteur);
        
-        $this->genererVue(array('rapports' => $rapports),"consulter");
+        $this->genererVue(array('rapports' => $rapports),"index");
     }
     public function indexajout() {
         $praticiens= $this->praticien->getPraticiens();
@@ -41,7 +41,19 @@ public function ajout() {
         // Exécution de l'action par défaut pour réafficher la liste des billets
         $this->genererVue(array("message"=>$message));
 }
-  
+  public function modification()
+  {
+       $idRapport = $this->requete->getParametre('id');
+        try{
+        $modification=$this->rapport->getRapport($idRapport);
+        
+        $this->genererVue(array("modification"=>$modification));
+        }catch (Exception $e) {
+       throw $e;}
+  }
+  public function modifier(){
+      
+  }
     public function supprimer() {
       $idRapport = $this->requete->getParametre('id');
         try{
